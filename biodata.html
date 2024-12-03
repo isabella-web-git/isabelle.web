@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Biodata - Nur Nabila</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/biodata.css">
+</head>
+<body>
+    
+<div id="top"></div>
+    <div id="intro-animation" class="intro-container">
+        <div class="flash-content">
+            <div class="flash-circle"></div>
+            <video id="intro-video" class="intro-cat" style="display: none;" muted>
+                <source src="video/random_cat2.MP4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+    <div class="header">
+        <h1>My Biodata</h1>
+        <img src="images/cat-profile.png" alt="Cat Profile" class="cat-animation" width="150">
+    </div>
+
+    <div class="navigation">
+        <a href="index.html">Home</a>
+        <a href="biodata.html">Biodata</a>
+        <a href="experience.html">Experience</a>
+        <a href="education.html">Education</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+
+    <div class="content">
+        <div class="biodata-card">
+            <div class="info-item" style="animation-delay: 0.2s">
+                <span class="info-bullet">■</span>
+                <span class="info-label">Name:</span>
+                <span class="underline">Nur Nabila binti Omar</span>
+            </div>
+            <div class="info-item" style="animation-delay: 0.4s">
+                <span class="info-bullet">■</span>
+                <span class="info-label">Age:</span>
+                20
+            </div>
+            <div class="info-item" style="animation-delay: 0.6s">
+                <span class="info-bullet">■</span>
+                <span class="info-label">Birthplace:</span>
+                Johor
+            </div>
+            <div class="info-item" style="animation-delay: 0.8s">
+                <span class="info-bullet">■</span>
+                <span class="info-label">Matrix Number:</span>
+                2022643382
+            </div>
+            <div class="info-item" style="animation-delay: 1.0s">
+                <span class="info-bullet">■</span>
+                <span class="info-label">Class:</span>
+                CDIM1105A
+            </div>
+        
+            <div class="clock-container" id="clock">00:00:00</div>
+        
+            <div class="music-player">
+                <audio controls autoplay loop>
+                    <source src="music/sweet-song.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+        <div class="timetable-card">
+            <h2 class="schedule-title">My Weekend Schedule</h2>
+            <table class="timetable">
+                <tr>
+                    <th>Time</th>
+                    <th>Saturday & Sunday</th>
+                </tr>
+                <tr>
+                    <td>7:00 AM - 8:00 AM</td>
+                    <td>
+                        <sup style="font-size: 0.7em; color: #ffd6e6; display: block; margin-bottom: 2px; ">woo strong!</sup>
+                        Gym 🏋️‍♀️
+                    </td>
+                </tr>
+                <tr>
+                    <td>9:00 AM - 10:00 AM</td>
+                    <td>
+                        <u class="styled-underline">Breakfast</u> 🍳
+                    </td>
+                </tr>
+                <tr>
+                    <td>11:00 AM - 4:00 PM</td>
+                    <td>Laundry 🧺 | Prayer 🤲 | Room Chores 🧹</td>
+                </tr>
+                <tr>
+                    <td>10:00 PM</td>
+                    <td>Sleep 😴</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Floating Hearts -->
+    <div id="hearts-container"></div>
+<!-- For status with location -->
+<div class="info-item" style="animation-delay: 1.2s">
+    <span class="info-bullet">■</span>
+    <span class="info-label">Status:</span>
+    Final-year diploma student at UiTM 
+    <span class="location-link" onclick="openMap()">📍</span>
+</div>
+
+
+<!-- Add near the top right -->
+<div class="current-date">
+    <span id="currentDate"></span>
+</div>
+
+<!-- Add at the bottom -->
+<div class="back-to-top" id="backToTop">
+    <a href="#top">🔝</a>
+</div>
+<script>
+    function openMap() {
+        // Link to UiTM Segamat's location
+        window.open('https://www.google.com/maps/place/UiTM+Cawangan+Johor,+Kampus+Segamat/@2.4879698,102.7267277,17z/data=!3m1!4b1!4m6!3m5!1s0x31ce2c6ce929a871:0xc0dfa5fe6922a589!8m2!3d2.4879644!4d102.7293026!16s%2Fg%2F187cd8bw?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D', '_blank');
+    }
+</script>
+<script>
+    // Date display
+    function updateDate() {
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', options);
+    }
+    updateDate();
+
+    // Back to top visibility
+    window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById('backToTop').classList.add('visible');
+        } else {
+            document.getElementById('backToTop').classList.remove('visible');
+        }
+    };
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+    <script>
+        const tableCells = document.querySelectorAll('.timetable td');
+        tableCells.forEach(cell => {
+            cell.addEventListener('mouseover', function() {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💖';
+                heart.style.position = 'fixed';
+                heart.style.left = event.pageX + 'px';
+                heart.style.top = event.pageY + 'px';
+                heart.style.pointerEvents = 'none';
+                heart.style.animation = 'floatHeart 1s ease-out forwards';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 1000);
+            });
+        });
+    </script>
+    <script>
+          setTimeout(() => {
+        const video = document.getElementById('intro-video');
+        video.style.display = 'block';
+        video.play();
+    }, 800);
+
+    // Listen for video end
+    document.getElementById('intro-video').addEventListener('ended', () => {
+        const intro = document.getElementById('intro-animation');
+        intro.style.transition = 'opacity 0.5s ease';
+        intro.style.opacity = '0';
+        setTimeout(() => {
+            intro.remove();
+        }, 500);
+    });
+
+    // Fallback to remove intro if video doesn't play
+    setTimeout(() => {
+        const intro = document.getElementById('intro-animation');
+        if (intro) {
+            intro.style.transition = 'opacity 0.5s ease';
+            intro.style.opacity = '0';
+            setTimeout(() => {
+                intro.remove();
+            }, 500);
+        }
+    }, 4000);
+
+        // Clock function
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('clock').textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Floating hearts animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💖';
+            heart.className = 'floating-heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            document.getElementById('hearts-container').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 500);
+
+        // Mouse trail effect
+        document.addEventListener('mousemove', function(e) {
+            const trail = document.createElement('div');
+            trail.className = 'mouse-trail';
+            trail.style.left = e.pageX + 'px';
+            trail.style.top = e.pageY + 'px';
+            trail.style.position = 'fixed';
+            trail.style.width = '10px';
+            trail.style.height = '10px';
+            trail.style.background = '#ffd6e6';
+            trail.style.borderRadius = '50%';
+            trail.style.pointerEvents = 'none';
+            document.body.appendChild(trail);
+
+            setTimeout(() => {
+                trail.style.transition = 'all 1s';
+                trail.style.opacity = '0';
+                trail.style.transform = 'scale(0)';
+                setTimeout(() => trail.remove(), 1000);
+            }, 100);
+        });
+    </script>
+</body>
+</html>
